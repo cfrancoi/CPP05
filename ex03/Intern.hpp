@@ -9,7 +9,7 @@
 # include "ShrubberyCreationForm.hpp"
 
 
-class Intern : public Form
+class Intern
 {
 
 	public:
@@ -18,9 +18,21 @@ class Intern : public Form
 		Intern( Intern const & src );
 		~Intern();
 
-		Form * makeForm();
+		Form * makeForm(std::string const & name, std::string const & target);
 		Intern &		operator=( Intern const & rhs );
 	private:
+		typedef struct	s_tab
+		{
+			std::string		name;
+			Form			*(*fct)(std::string const &target);
+		}				t_tab;
+
+		t_tab 			_lst[3];
+
+	/*	Form			*CreatePresidential(std::string const & target);
+		Form			*CreateRobotomy(std::string const & target);
+		Form			*CreateShrubbery(std::string const & target);*/
+
 
 };
 

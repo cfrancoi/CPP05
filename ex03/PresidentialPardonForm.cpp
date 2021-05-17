@@ -1,45 +1,45 @@
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const & name) : Form("Robot request", 72, 45, name)
-{
-	srand(time(NULL));
-}
-
-
-RobotomyRequestForm::RobotomyRequestForm()
+PresidentialPardonForm::PresidentialPardonForm()
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Form(src.getName(), src.getGradeToSign(), src.getGradeToExec(), src.getTarget())
+PresidentialPardonForm::PresidentialPardonForm(std::string const & name) : Form("Presidential pardon", 25, 5, name)
+{
+	
+}
+
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src) : Form(src.getName(), src.getGradeToSign(), src.getGradeToExec(), src.getTarget())
 {
 	*this = src;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
+
+
 
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
+PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	setSigned(rhs.getSigned());
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
+std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
 {
 	o << "Form " << i.getName() << " need grade : " << std::endl;
 	o << " - to sign : " << i.getGradeToSign() << std::endl;
@@ -53,7 +53,7 @@ std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 	{
 		o << " not signed" << std::endl;
 	}
-	return o;
+	return o;;
 }
 
 
@@ -61,7 +61,7 @@ std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void RobotomyRequestForm::execForm(Bureaucrat &ref) const
+void PresidentialPardonForm::execForm(Bureaucrat &ref) const
 {
 	if (getSigned() == false)
 	{
@@ -71,21 +71,8 @@ void RobotomyRequestForm::execForm(Bureaucrat &ref) const
 	{
 		throw(Form::GradeTooLowtExecption());
 	}
-	
-
-	int i;
-	i = rand() % 2;
-	if (i)
-	{
-		std::cout <<"* Brrzzz *" << std::endl;
-		std::cout << getTarget() << " has been robotomized" << std::endl;
-	}
-	else
-	{
-		std::cout <<"It's a failure." << std::endl;
-	}
+	std::cout << getTarget() << " has been pardonned by Zafod Beeblobrox" << std::endl;
 }
-
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

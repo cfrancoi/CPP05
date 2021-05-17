@@ -21,7 +21,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
-
+	
 	Form *fast;
 	try 
 	{
@@ -101,16 +101,6 @@ int main(void)
 	std::cout << *ptr;;
 
 	delete ptr;
-
-
-
-
-
-
-
-	
-
-
 	delete bob;
 	delete fast;
 
