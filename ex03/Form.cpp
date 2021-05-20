@@ -44,10 +44,10 @@ Form::~Form()
 
 Form &				Form::operator=( Form const & rhs )
 {
-	_signed = rhs._signed;
-	_grade_to_sign = rhs.getGradeToSign();
-	_grade_to_exec = rhs.getGradeToExec();
-
+	setSigned(rhs.getSigned());
+	setGradeToSign(rhs.getGradeToSign());
+	setGradeToExec(rhs.getGradeToExec());
+	setTarget(rhs.getTarget());
 	return *this;
 }
 
@@ -110,14 +110,29 @@ int Form::getGradeToSign() const
 	return _grade_to_sign;
 }
 
+void Form::setGradeToSign(int grade) 
+{
+	_grade_to_sign = grade;
+}
+
 int Form::getGradeToExec() const
 {
 	return _grade_to_exec;
 }
 
+void Form::setGradeToExec(int grade) 
+{
+	_grade_to_exec = grade;
+}
+
 std::string const& Form::getTarget() const
 {
 	return _target;
+}
+
+void Form::setTarget(std::string const & target) 
+{
+	_target = target;
 }
 
 

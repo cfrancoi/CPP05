@@ -18,6 +18,7 @@ class Bureaucrat
 		void					incGrade(void);
 		void					decGrade(void);
 
+		Bureaucrat &		operator=( Bureaucrat const & rhs );
 		class GradeTooHightExecption : public std::exception
 		{
 			public:
@@ -36,7 +37,7 @@ class Bureaucrat
 		};
 
 	private:
-		Bureaucrat &		operator=( Bureaucrat const & rhs );
+		
 		Bureaucrat();
 		std::string const	_name;
 		int					_grade;

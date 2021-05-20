@@ -13,15 +13,16 @@ class PresidentialPardonForm : public Form
 
 		PresidentialPardonForm(std::string const & target);
 		PresidentialPardonForm( PresidentialPardonForm const & src );
-		~PresidentialPardonForm();
+		virtual ~PresidentialPardonForm();
 
 
-		void			execForm(Bureaucrat &ref) const;
+		virtual void	execForm(Bureaucrat &ref) const;
 
+		
 	private:
-		std::string		_target;
-		PresidentialPardonForm();
 		PresidentialPardonForm &		operator=( PresidentialPardonForm const & rhs );
+		PresidentialPardonForm();
+		
 
 };
 

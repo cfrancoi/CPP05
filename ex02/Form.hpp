@@ -11,7 +11,7 @@ class Form
 {
 
 	public:
-		Form();
+
 		Form(std::string const & name, int grade_to_sign, int grade_to_exec, std::string const & target);
 		Form( Form const & src );
 		virtual ~Form();
@@ -22,10 +22,16 @@ class Form
 
 		bool					getSigned() const;
 		void					setSigned(bool state);
+
 		std::string	const &		getName() const;
+
 		int						getGradeToSign() const;
+		void					setGradeToSign(int grade);
 		int						getGradeToExec() const;
+		void					setGradeToExec(int grade);
+
 		std::string	const &		getTarget() const;
+		void					setTarget(std::string const & target);
 
 		class GradeTooHightExecption : public std::exception
 		{
@@ -51,6 +57,9 @@ class Form
 					return ("Form is not signed");
 				}
 		};
+
+	protected:
+		Form();
 	private:
 		
 		Form &		operator=( Form const & rhs );

@@ -24,7 +24,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "dec Bob lvl 150 : "  << e.what() << std::endl;
 	}
 
 	try 
@@ -36,5 +36,34 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << *bob;
+
+	delete bob;
+
+	try
+	{
+		bob = new Bureaucrat("BoB", 0);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Create Bob lvl 0 : "<<  e.what() << std::endl;
+	}
+	try
+	{
+		bob = new Bureaucrat("BoB", 1);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << *bob;
+	try
+	{
+		bob->incGrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "inc Bob lvl 1 : " << e.what() << std::endl;
+	}
+	
 	return 0;
 }

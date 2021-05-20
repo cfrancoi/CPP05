@@ -13,13 +13,12 @@ class ShrubberyCreationForm : public Form
 
 		ShrubberyCreationForm(std::string const &name);
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
-		~ShrubberyCreationForm();
+		virtual ~ShrubberyCreationForm();
 		
 
-		void execForm(Bureaucrat &ref) const;
+		virtual void execForm(Bureaucrat &ref) const;
 
 	private:
-		std::string				_target;
 		ShrubberyCreationForm();
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 

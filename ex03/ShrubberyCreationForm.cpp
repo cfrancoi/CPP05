@@ -37,6 +37,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
 {
 	setSigned(rhs.getSigned());
+	setGradeToSign(rhs.getGradeToSign());
+	setGradeToExec(rhs.getGradeToExec());
+	setTarget(rhs.getTarget());
 	return *this;
 }
 
